@@ -1,0 +1,16 @@
+[
+    {
+      "nombre": "Nintendo Switch",
+      "venta": true,
+      "precio": 250,
+      "foto": "nintendo1.jpg",
+      "tags": ["gaming", "work"]
+    },
+    {
+      "nombre": "Hoverboard",
+      "venta": false,
+      "precio": 50,
+      "foto": "hover.jpg",
+      "tags": ["lifestyle", "funny"]
+    }
+  ]
