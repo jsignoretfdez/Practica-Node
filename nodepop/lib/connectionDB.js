@@ -7,12 +7,13 @@ mongoose.connect('mongodb://localhost:27017/josepop',
   });
 const db = mongoose.connection;
 
-db.on('error', (err) => {
-  console.log('No se ha podido conectar', err);
+db.on('open', () => {
+  console.log('Conexión exitosa a la base de datos', mongoose.connection.name);
 });
 
-db.once('open', () => {
-  console.log('Conexión exitosa');
+db.on('error', (err) => {
+  console.log(`No se ha podido conectar${err}`);
+  process.exit(1);
 });
 
 module.exports = mongoose.connection;
