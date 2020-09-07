@@ -1,6 +1,6 @@
 const readline = require('readline');
 const fs = require('fs');
-const connection = require('./lib/connectionDB');
+const conn = require('./lib/connectionDB');
 const Anuncio = require('./models/Anuncio');
 
 function questionUser(question) {
@@ -31,13 +31,13 @@ async function createAnuncio() {
   }
 }
 
-connection.once('open', async () => {
+conn.once('open', async () => {
   try {
     const answerUser = await questionUser('Quieres reinicializar la Base de Datos? (no)');
     if (answerUser.toLowerCase() === 'si') {
       console.log('Borrando la Base de datos');
       await createAnuncio();
-      connection.close();
+      conn.close();
     } else {
       console.log('No se borrara');
       process.exit(1);
