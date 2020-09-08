@@ -20,11 +20,17 @@
      <tr>
        <td class="col"><%= anuncio.nombre %></td>
        <td class="col"><%= anuncio.venta %></td>
-       <td class="col"><%= anuncio.precio %></td>
+       <td class="col"><%= anuncio.precio %>€</td>
        <td class="col"><%= anuncio.tags %></td>
-       <td class="col"><img src="<%= anuncio.foto %>" alt="" class="img-spot"></td>
+       <td class="col"><img src="../images/anuncios/<%= anuncio.foto %>" alt="" class="img-spot"></td>
      </tr>
   <% }) %>
     </table>
+    <nav class="nav">
+      <a class="nav-link active" href="#">Filtro Por Tag</a>
+      <a class="nav-link" href="#">Filtro Por Precio</a>
+      <a class="nav-link" href="#">Filtrado Por Nombre</a>
+      <a class="nav-link disabled" href="#">Filtrado Por orden descendente</a>
+    </nav>
   </body>
 </html>
