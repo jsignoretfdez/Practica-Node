@@ -10,6 +10,11 @@ const anuncioSchema = mongoose.Schema({
   tags: ['String'],
 });
 
+anuncioSchema.statics.list = function (){
+  const query = Anuncio.find();
+  return query.exec();
+}
+
 // Crear Modelo
 const Anuncio = mongoose.model('Anuncio', anuncioSchema);
 
