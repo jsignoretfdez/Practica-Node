@@ -3,9 +3,26 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <table class="table table-striped">
+    <tr>
+      <th class="col">Nombre Producto</th>
+      <th class="col">Venta</th>
+      <th class="col">precio</th>
+      <th class="col">tags</th>
+    </tr>
+    <% anuncios.forEach(anuncio =>{%>
+     <tr>
+       <td class="col"><%= anuncio.nombre %></td>
+       <td class="col"><%= anuncio.venta %></td>
+       <td class="col"><%= anuncio.precio %></td>
+       <td class="col"><%= anuncio.tags %></td>
+     </tr>
+  <% }) %>
+    </table>
   </body>
 </html>
