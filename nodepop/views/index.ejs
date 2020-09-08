@@ -12,8 +12,9 @@
     <tr>
       <th class="col">Nombre Producto</th>
       <th class="col">Venta</th>
-      <th class="col">precio</th>
-      <th class="col">tags</th>
+      <th class="col">Precio</th>
+      <th class="col">Tags</th>
+      <th class="col">Foto</th>
     </tr>
     <% anuncios.forEach(anuncio =>{%>
      <tr>
@@ -21,6 +22,7 @@
        <td class="col"><%= anuncio.venta %></td>
        <td class="col"><%= anuncio.precio %></td>
        <td class="col"><%= anuncio.tags %></td>
+       <td class="col"><img src="<%= anuncio.foto %>" alt="" class="img-spot"></td>
      </tr>
   <% }) %>
     </table>
