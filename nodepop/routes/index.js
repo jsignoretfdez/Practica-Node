@@ -7,7 +7,7 @@ router.get('/', async function(req, res, next) {
 
   try {
     const anuncios = await Anuncio.list();
-    res.render('index', { title: 'Nodepop', anuncios: anuncios});
+    res.render('index', { title: 'Nodepop', anuncios});
   }catch (e){
     next(e);
   }
