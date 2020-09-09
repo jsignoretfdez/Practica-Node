@@ -12,5 +12,26 @@
       "precio": 50,
       "foto": "hoverboard.jpeg",
       "tags": ["lifestyle", "funny"]
+    },
+    {
+      "nombre": "Go Pro 5",
+      "venta": true,
+      "precio": 95,
+      "foto": "gopro.jpeg",
+      "tags": ["lifestyle", "sports"]
+    },
+    {
+      "nombre": "Portatil Xiaomi",
+      "venta": true,
+      "precio": 180,
+      "foto": "portatil-xiaomi.jpeg",
+      "tags": ["lifestyle", "work"]
+    },
+    {
+      "nombre": "Apple Watch",
+      "venta": false,
+      "precio": 90,
+      "foto": "apple-watch.jpeg",
+      "tags": ["lifestyle", "work"]
     }
   ]
