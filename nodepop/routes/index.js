@@ -6,8 +6,8 @@ const Anuncio = require('../models/Anuncio')
 router.get('/', async function(req, res, next) {
 
   try {
-    const anuncios = await Anuncio.list();
-    res.render('index', { title: 'Nodepop', anuncios});
+    const anuncios = await Anuncio.list()
+    res.render('index', { anuncios });
   }catch (e){
     next(e);
   }
