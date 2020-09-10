@@ -7,7 +7,7 @@
 </head>
 <body>
 <%include header.ejs%>
-<form action="/apiv1/anuncios/upload" method="post">
+<form action="/apiv1/anuncios/upload" method="post" enctype="multipart/form-data">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="name">Nombre</label>
@@ -25,12 +25,26 @@
             <option value="busco" selected>Busco</option>
         </select>
     </div>
-    <div class="form-group">
-        <label for="inputAddress2">Tags <span>Poner tantas como se quiera separados por coma</span></label>
-        <input type="text" class="form-control" id="inputAddress2" name="tags" placeholder="tags">
+    <h6><label for="">Tags</label></h6>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="work" name="tags">
+        <label class="form-check-label" for="inlineCheckbox1">Work</label>
     </div>
-    <div class="form-group">
-        <input type="file" class="form-control" name="foto" id="foto">
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="lifestyle" name="tags">
+        <label class="form-check-label" for="inlineCheckbox2">Lifestyle</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="funny" name="tags">
+        <label class="form-check-label" for="inlineCheckbox3">Funny</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="gaming" name="tags">
+        <label class="form-check-label" for="inlineCheckbox4">Gaming</label>
+    </div>
+    <div class="custom-file">
+        <input type="file" class="custom-file-input" id="customFileLang" name="foto">
+        <label class="custom-file-label">Seleccionar Imagen</label>
     </div>
 
     <button type="submit" class="btn btn-primary">Enviar</button>
