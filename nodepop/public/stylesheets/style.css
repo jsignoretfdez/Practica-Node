@@ -15,3 +15,7 @@ a {
 .col-width{
   max-width: 100%;
 }
+
+div.custom-file{
+  margin: 1rem 0;
+}
