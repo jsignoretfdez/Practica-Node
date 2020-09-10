@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 const mongoose = require('mongoose');
 // Creamos el esquema
 
@@ -6,13 +7,13 @@ const anuncioSchema = mongoose.Schema({
   venta: 'Boolean',
   precio: 'Number',
   foto: 'String',
-  tags: ['String']
+  tags: ['String'],
 });
 
-anuncioSchema.statics.list = function (){
+anuncioSchema.statics.list = function () {
   const query = Anuncio.find();
   return query.exec();
-}
+};
 
 // Crear Modelo
 const Anuncio = mongoose.model('Anuncio', anuncioSchema);
