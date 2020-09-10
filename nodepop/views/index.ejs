@@ -6,23 +6,27 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <%include header.ejs%>
+    <h3>Listado de Anuncios</h3>
     <table class="table table-striped">
     <tr>
-      <th class="col">Nombre Producto</th>
-      <th class="col">Venta</th>
-      <th class="col">Precio</th>
-      <th class="col">Tags</th>
-      <th class="col">Foto</th>
+      <th class="col-width">#</th>
+      <th class="col-width">Nombre Producto</th>
+      <th class="col-width">Venta</th>
+      <th class="col-width">Precio</th>
+      <th class="col-width">Tags</th>
+      <th class="col-width">Foto</th>
+
     </tr>
-    <% anuncios.forEach(anuncio =>{%>
+    <% anuncios.forEach((anuncio, i) =>{%>
+
      <tr>
-       <td class="col"><%= anuncio.nombre %></td>
-       <td class="col"><%= anuncio.venta %></td>
-       <td class="col"><%= anuncio.precio %>€</td>
-       <td class="col"><%= anuncio.tags %></td>
-       <td class="col"><img src="../images/anuncios/<%= anuncio.foto %>" alt="" class="img-spot"></td>
+       <td><%= i + 1 %></td>
+       <td class="col-width"><%= anuncio.nombre %></td>
+       <td class="col-width"><%= anuncio.venta ? 'Si' : 'No' %></td>
+       <td class="col-width"><%= anuncio.precio %>€</td>
+       <td class="col-width"><%= anuncio.tags %></td>
+       <td class="col-width"><img src="../images/anuncios/<%= anuncio.foto %>" alt="" class="img-spot"></td>
      </tr>
   <% }) %>
     </table>
@@ -30,11 +34,11 @@
       <a class="nav-link active" href="#">Filtro Por Tag</a>
       <a class="nav-link" href="#">Filtro Por Precio</a>
       <a class="nav-link" href="#">Filtrado Por Nombre</a>
-      <a class="nav-link disabled" href="#">Filtrado Por orden descendente</a>
+      <a class="nav-link" href="#">Filtrado Por orden descendente</a>
     </nav>
-    <form action="/crear-anuncio" method="post">
-      <button type="submit"  class="btn btn-outline-success">Crear Anuncio</button>
+    <form method="post">
+      <button type="submit" formaction="apiv1/anuncios/crear-anuncio"  class="btn btn-outline-success">Crear Anuncio</button>
+      <button type="submit" formaction="/borrar-anuncio" class="btn btn-outline-danger">Borrar anuncio</button>
     </form>
-    <button type="button" class="btn btn-outline-danger">Borrar anuncio</button>
   </body>
 </html>
