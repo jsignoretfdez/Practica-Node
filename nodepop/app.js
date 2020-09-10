@@ -3,12 +3,10 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const bodyParser = require('body-parser');
 const mongoose = require('./lib/connectionDB');
-const bodyParser = require('body-parser')
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 const apiAnuncios = require('./routes/apiv1/anuncios');
-
 
 const app = express();
 
@@ -21,15 +19,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.json() );
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended: true
+  extended: true,
 }));
 
 app.locals.title = 'Nodepop';
 
 app.use('/', indexRouter);
-
 
 app.use('/apiv1/anuncios', apiAnuncios);
 
