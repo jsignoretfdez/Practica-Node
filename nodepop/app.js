@@ -29,7 +29,6 @@ app.use(bodyParser.urlencoded({
 app.locals.title = 'Nodepop';
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 
 app.use('/apiv1/anuncios', apiAnuncios);
