@@ -6,7 +6,6 @@ const logger = require('morgan');
 const mongoose = require('./lib/connectionDB');
 const bodyParser = require('body-parser')
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 const apiAnuncios = require('./routes/apiv1/anuncios');
 
 
