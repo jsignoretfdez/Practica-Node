@@ -1,18 +1,16 @@
-var express = require('express');
-var router = express.Router();
-const Anuncio = require('../models/Anuncio')
+const express = require('express');
+
+const router = express.Router();
+const Anuncio = require('../models/Anuncio');
 
 /* GET home page. */
-router.get('/', async function(req, res, next) {
-
+router.get('/', async (req, res, next) => {
   try {
-    const anuncios = await Anuncio.list()
+    const anuncios = await Anuncio.list();
     res.render('index', { anuncios });
-  }catch (e){
+  } catch (e) {
     next(e);
   }
-
-
 });
 
 module.exports = router;
