@@ -12,8 +12,6 @@ const anuncioSchema = mongoose.Schema({
 anuncioSchema.statics.list = function (){
   const query = Anuncio.find();
   return query.exec();
-
-
 }
 
 // Crear Modelo
