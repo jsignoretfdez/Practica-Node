@@ -6,12 +6,16 @@ const anuncioSchema = mongoose.Schema({
   nombre: { type: String, index: true },
   venta: { type: Boolean, index: true },
   precio: { type: Number, index: true },
-  foto: 'String',
-  tags: ['String'],
+  foto: { type: String },
+  tags: { type: [String], index: true },
 });
 
-anuncioSchema.statics.list = function () {
-  const query = Anuncio.find();
+anuncioSchema.statics.list = function (filtro, limit, skip, sort) {
+  const query = Anuncio.find(filtro);
+  query.limit(limit);
+  query.skip(skip);
+  query.sort(sort);
+
   return query.exec();
 };
 
