@@ -1,3 +1,6 @@
+/* eslint-disable strict */
+// eslint-disable-next-line lines-around-directive
+'use strict';
 const express = require('express');
 
 const router = express.Router();
