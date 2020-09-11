@@ -1,3 +1,6 @@
+/* eslint-disable strict */
+// eslint-disable-next-line lines-around-directive
+'use strict';
 const readline = require('readline');
 const fs = require('fs');
 const conn = require('./lib/connectionDB');
@@ -33,7 +36,7 @@ async function createAnuncio() {
 
 conn.once('open', async () => {
   try {
-    const answerUser = await questionUser('Quieres reinicializar la Base de Datos? (no)');
+    const answerUser = await questionUser('Quieres reinicializar la Base de Datos? (no) ');
     if (answerUser.toLowerCase() === 'si') {
       console.log('Borrando la Base de datos');
       await createAnuncio();
