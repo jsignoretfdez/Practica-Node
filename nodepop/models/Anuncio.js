@@ -1,3 +1,7 @@
+/* eslint-disable strict */
+// eslint-disable-next-line lines-around-directive
+'use strict';
+
 /* eslint-disable no-use-before-define */
 const mongoose = require('mongoose');
 // Creamos el esquema
