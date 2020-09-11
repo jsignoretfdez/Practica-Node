@@ -1,3 +1,7 @@
+/* eslint-disable strict */
+// eslint-disable-next-line lines-around-directive
+'use strict';
+
 const express = require('express');
 const multer = require('multer');
 
@@ -16,7 +20,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-/* Post  */
+/* Post Renderiza Vista para Crear anuncio */
 router.post('/crear-anuncio', (req, res, next) => {
   res.render('crear');
 });
@@ -51,6 +55,7 @@ router.post('/upload', upload.single('foto'), async (req, res, next) => {
   }
 });
 
+// Listado de anuncios y filtros
 router.get('/', async (req, res, next) => {
   try {
     const {
@@ -59,11 +64,11 @@ router.get('/', async (req, res, next) => {
     const limit = parseInt(req.query.limit || 10);
     const skip = parseInt(req.query.skip);
     const filtro = {};
+    // Filtro por nombre
     if (nombre !== undefined) {
       filtro.nombre = new RegExp(`^${
         nombre}`, 'i');
     }
-
     // Filtro Rango de precios
     if (precio !== undefined) {
       const precioSave = precio.split('-').map(parseFloat);
@@ -92,11 +97,12 @@ router.get('/', async (req, res, next) => {
     // Listado de anuncios
     const anuncios = await Anuncio.list(filtro, limit, skip, sort, tags);
     res.render('anuncios', { anuncios });
-  } catch (e) {
-    next(e);
+  } catch (err) {
+    next(err);
   }
 });
 
+// Middleware para eliminar anuncio
 router.delete('/:_id', async (req, res, next) => {
   try {
     const { _id } = req.params;
