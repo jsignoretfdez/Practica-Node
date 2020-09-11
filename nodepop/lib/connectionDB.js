@@ -4,6 +4,7 @@ mongoose.connect('mongodb://localhost:27017/josepop',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useCreateIndex: true,
   });
 const db = mongoose.connection;
 
