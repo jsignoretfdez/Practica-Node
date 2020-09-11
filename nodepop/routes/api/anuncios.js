@@ -45,7 +45,7 @@ router.post('/upload', upload.single('foto'), async (req, res, next) => {
     // Lo guardamos en BD
     await anuncio.save();
 
-    res.redirect('/');
+    res.redirect('/api/anuncios');
   } catch (err) {
     next(err);
   }
@@ -53,7 +53,15 @@ router.post('/upload', upload.single('foto'), async (req, res, next) => {
 
 router.get('/', async (req, res, next) => {
   try {
-    const anuncios = await Anuncio.list();
+    const { nombre, sort } = req.query;
+    const limit = parseInt(req.query.limit || 10);
+    const skip = parseInt(req.query.skip);
+    const filtro = {};
+    if (nombre) {
+      filtro.nombre = nombre;
+    }
+
+    const anuncios = await Anuncio.list(filtro, limit, skip, sort);
     res.render('anuncios', { anuncios });
   } catch (e) {
     next(e);

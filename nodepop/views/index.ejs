@@ -11,6 +11,7 @@
     <table class="table table-striped">
     <tr>
       <th class="col-width">#</th>
+      <th class="col-width">ID</th>
       <th class="col-width">Nombre Producto</th>
       <th class="col-width">Venta</th>
       <th class="col-width">Precio</th>
@@ -22,6 +23,7 @@
 
      <tr>
        <td><%= i + 1 %></td>
+       <td class="col-width"><%= anuncio._id %></td>
        <td class="col-width"><%= anuncio.nombre %></td>
        <td class="col-width"><%= anuncio.venta ? 'Si' : 'No' %></td>
        <td class="col-width"><%= anuncio.precio %>€</td>
@@ -33,12 +35,13 @@
     <nav class="nav">
       <a class="nav-link active" href="#">Filtro Por Tag</a>
       <a class="nav-link" href="#">Filtro Por Precio</a>
-      <a class="nav-link" href="#">Filtrado Por Nombre</a>
-      <a class="nav-link" href="#">Filtrado Por orden descendente</a>
+      <a class="nav-link" href="/api/anuncios?nombre=Samsung%20S5">Filtrado Por Nombre</a>
+      <a class="nav-link" href="/api/anuncios?sort=-precio">Filtrado Por orden descendente</a>
+      <a class="nav-link" href="/api/anuncios?limit=2">Paginación</a>
+
     </nav>
     <form method="post">
-      <button type="submit" formaction="apiv1/anuncios/crear-anuncio"  class="btn btn-outline-success">Crear Anuncio</button>
-      <button type="submit" formaction="/borrar-anuncio" class="btn btn-outline-danger">Borrar anuncio</button>
+      <button type="submit" formaction="api/anuncios/crear-anuncio"  class="btn btn-outline-success">Crear Anuncio</button>
     </form>
   </body>
 </html>
