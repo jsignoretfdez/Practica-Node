@@ -1,5 +1,3 @@
-'use strict';
-
 const express = require('express');
 const multer = require('multer');
 
@@ -16,7 +14,7 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({ storage });
 
 /* Post  */
 router.post('/crear-anuncio', (req, res, next) => {
@@ -48,6 +46,33 @@ router.post('/upload', upload.single('foto'), async (req, res, next) => {
     await anuncio.save();
 
     res.redirect('/');
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get('/', async (req, res, next) => {
+  try {
+    const anuncios = await Anuncio.list();
+    res.render('anuncios', { anuncios });
+  } catch (e) {
+    next(e);
+  }
+});
+
+router.delete('/:_id', async (req, res, next) => {
+  try {
+    const { _id } = req.params;
+
+    await Anuncio.deleteOne({
+      _id,
+    });
+
+    res.json({
+      status: 'Ok',
+      resultado: 'Anuncio Borrado Correctamente',
+      id: _id,
+    });
   } catch (err) {
     next(err);
   }

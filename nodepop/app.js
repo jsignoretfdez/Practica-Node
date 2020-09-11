@@ -6,7 +6,7 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('./lib/connectionDB');
 const indexRouter = require('./routes/index');
-const apiAnuncios = require('./routes/apiv1/anuncios');
+const apiAnuncios = require('./routes/api/anuncios');
 
 const app = express();
 
@@ -28,7 +28,7 @@ app.locals.title = 'Nodepop';
 
 app.use('/', indexRouter);
 
-app.use('/apiv1/anuncios', apiAnuncios);
+app.use('/api/anuncios', apiAnuncios);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
