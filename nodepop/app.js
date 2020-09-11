@@ -1,9 +1,13 @@
+/* eslint-disable strict */
+// eslint-disable-next-line lines-around-directive
+'use strict';
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+// eslint-disable-next-line no-unused-vars
 const mongoose = require('./lib/connectionDB');
 const indexRouter = require('./routes/index');
 const apiAnuncios = require('./routes/api/anuncios');
