@@ -7,7 +7,7 @@
   </head>
   <body>
     <%include header.ejs%>
-    <h3>Listado de Anuncios</h3>
+    <h3>Página de Ejemplo: Listado de Anuncios</h3>
     <table class="table table-striped">
     <tr>
       <th class="col-width">#</th>
@@ -33,12 +33,14 @@
   <% }) %>
     </table>
     <nav class="nav">
-      <a class="nav-link active" href="#">Filtro Por Tag</a>
-      <a class="nav-link" href="#">Filtro Por Precio</a>
-      <a class="nav-link" href="/api/anuncios?nombre=Samsung%20S5">Filtrado Por Nombre</a>
+      <a class="nav-link active" href="/api/anuncios">Listado Anuncios</a>
+      <a class="nav-link active" href="/api/anuncios?tags=work%20funny">Filtro Por Tag</a>
+      <a class="nav-link" href="/api/anuncios?precio=80-190">Filtro Por Precio</a>
+      <a class="nav-link" href="/api/anuncios?nombre=n">Filtrado Por Nombre</a>
       <a class="nav-link" href="/api/anuncios?sort=-precio">Filtrado Por orden descendente</a>
-      <a class="nav-link" href="/api/anuncios?limit=2">Paginación</a>
-
+      <a class="nav-link" href="/api/anuncios?limit=2&skip=1">Paginación</a>
+      <a class="nav-link" href="/api/anuncios?venta=true">Filtrado Venta</a>
+      <a class="nav-link" href="/api/anuncios?limit=2&venta=true&precio=60-&tags=sports&nombre=G">Filtros Varios</a>
     </nav>
     <form method="post">
       <button type="submit" formaction="api/anuncios/crear-anuncio"  class="btn btn-outline-success">Crear Anuncio</button>
