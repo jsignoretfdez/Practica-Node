@@ -1,12 +1,16 @@
 /* eslint-disable strict */
 // eslint-disable-next-line lines-around-directive
 'use strict';
+
+require('dotenv').config();
+
 const readline = require('readline');
 const fs = require('fs');
 const conn = require('./lib/connectionDB');
 const Anuncio = require('./models/Anuncio');
 
 function questionUser(question) {
+  // eslint-disable-next-line no-unused-vars
   return new Promise((resolve, reject) => {
     const rl = readline.createInterface({
       input: process.stdin,
