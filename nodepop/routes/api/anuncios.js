@@ -121,4 +121,12 @@ router.delete('/:_id', async (req, res, next) => {
   }
 });
 
+router.get('/tags', async (req, res, next) => {
+  const tagsList = ['work', 'funny', 'sport', 'house', 'lifestyle', 'gaming'];
+  const list = tagsList.join('-');
+  res.json({
+    tagsPermitidos: list,
+  });
+});
+
 module.exports = router;
