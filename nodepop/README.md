@@ -40,7 +40,7 @@ npm run start
 
 GET /api/anuncios
 
-![Esta es una imagen de ejemplo](https://drive.google.com/file/d/1nWDaSSF_hxmF7BJV9D28y_RWiqOpIaEE/view?usp=sharing)
+![Esta es una imagen de ejemplo](https://1drv.ms/u/s!AgpnFpmPGTyai2Tx-8nEehR347pl?e=0iovhN)
 
 
 
