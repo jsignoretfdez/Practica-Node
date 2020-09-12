@@ -12,6 +12,10 @@ const anuncioSchema = mongoose.Schema({
   precio: { type: Number, index: true },
   foto: { type: String },
   tags: { type: [String], index: true },
+},
+{
+  //   collection: 'Anuncio', // para evitar la pluralización
+  autoIndex: process.env.NODE_ENV !== 'production', // no crear los índices automáticamente en producción (los crearé yo cuando me convenga)
 });
 
 anuncioSchema.statics.list = function (filtro, limit, skip, sort) {
