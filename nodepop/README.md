@@ -41,9 +41,78 @@ npm run start
 GET /api/anuncios
 
 
-![Esta es una imagen de ejemplo](https://drive.google.com/uc?export=view&id=1nWDaSSF_hxmF7BJV9D28y_RWiqOpIaEE)
+![Imagen Lista Anuncios](https://drive.google.com/uc?export=view&id=1uqzZ6uHTaza10QdyJZwFYzZ_DGL7lkGs)
 
+## Crear Anuncio
 
+POST /api/anuncios/crear-anuncio
+
+![Crear Anuncio](https://drive.google.com/uc?export=view&id=1nWDaSSF_hxmF7BJV9D28y_RWiqOpIaEE)
+
+> En la url http://localhost:3000, pulsa en botón crear anuncio y nos lleva al formulario para crear el anuncio
+
+![Formulario Anuncio](https://drive.google.com/uc?export=view&id=1tuCGnJBi7P9r537rZrMC2XYw8_HqMEoI)
+
+POST /api/anuncios/upload
+
+> Si todo ha salido correctamente nos mandara un json.
+
+{
+  "tags": [
+    "funny",
+    "gaming",
+    "sports",
+    "house"
+  ],
+  "_id": "5f5e7a306e95a5e45d97c8e4",
+  "nombre": "TV LG",
+  "precio": 50,
+  "venta": false,
+  "foto": "1600027184060_lampara_noche.jpg",
+  "__v": 0
+}
+
+## Borrar Anuncio
+
+DELETE /:_id
+
+{
+    "status": "Ok",
+    "resultado": "Anuncio Borrado Correctamente",
+    "id": "5f5cea35079e4ddbab3eeefd"
+}
+
+## Lista de Tags
+
+GET /api/anuncios/tags
+
+{
+  "tagsPermitidos": "work / funny / sport / house / lifestyle / gaming"
+}
+
+## Ejemplos de Filtros
+
+[comment]: # (Filtro Tags)
+* http://localhost:3000/api/anuncios?tags=work%20funny
+
+[comment]: # (Filtro Precio)
+* http://localhost:3000/api/anuncios?precio=80-190
+
+[comment]: # (Filtro Nombre)
+
+* http://localhost:3000/api/anuncios?nombre=n
+
+[comment]: # (Filtro Orden Descendente)
+
+* http://localhost:3000/api/anuncios?sort=-precio
+
+[comment]: # (Filtro Paginación)
+
+* http://localhost:3000/api/anuncios?limit=2&skip=1
+
+[comment]: # (Filtro Varios)
+
+* http://localhost:3000/api/anuncios?limit=2&venta=true&precio=60-&tags=sports&nombre=G
 
 
 ## Author
