@@ -8,6 +8,7 @@ const multer = require('multer');
 const router = express.Router();
 const Anuncio = require('../../models/Anuncio');
 
+// Funcionalidad subir imagenes a la base de datos
 const storage = multer.diskStorage({
   destination(req, file, cb) {
     cb(null, './public/images/anuncios');
@@ -47,9 +48,8 @@ router.post('/upload', upload.single('foto'), async (req, res, next) => {
     });
 
     // Lo guardamos en BD
-    await anuncio.save();
-
-    res.redirect('/api/anuncios');
+    const anuncioGuardado = await anuncio.save();
+    res.json(anuncioGuardado);
   } catch (err) {
     next(err);
   }
@@ -73,10 +73,8 @@ router.get('/', async (req, res, next) => {
     if (precio !== undefined) {
       const precioSave = precio.split('-').map(parseFloat);
       if (precioSave.length >= 1) {
-        console.log(precioSave[0], precioSave[1]);
         filtro.precio = precio;
         if (precioSave[0] && !precioSave[1]) {
-          console.log('Hola');
           filtro.precio = { $gte: precioSave[0] };
         } if (!precioSave[0] && precioSave[1]) {
           filtro.precio = { $lte: precioSave[1] };
@@ -123,7 +121,7 @@ router.delete('/:_id', async (req, res, next) => {
 
 router.get('/tags', async (req, res, next) => {
   const tagsList = ['work', 'funny', 'sport', 'house', 'lifestyle', 'gaming'];
-  const list = tagsList.join('-');
+  const list = tagsList.join(' / ');
   res.json({
     tagsPermitidos: list,
   });
